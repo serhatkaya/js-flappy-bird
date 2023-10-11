@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Js Flappy Bird</title>
+    <link rel="stylesheet" type="text/css" href="./assets/style.css" />
+  </head>
+  <body>
+    <div class="game">
+      <div class="game-container">
+        <div class="wall top"></div>
+        <div class="start-screen">
+          <h1>Flappy Bird</h1>
+          <button id="start-button">Start</button>
+        </div>
+        <div class="bird animated" id="bird">
+          <span class="eye"></span>
+          <div class="nib _n1"></div>
+          <div class="nib _n2"></div>
+        </div>
+        <div class="score-mid">0</div>
+        <div class="score">Best: <span id="score-best">0</span></div>
+        <div class="wall">
+          <a target="_blank" href="https://serhatkaya.com.tr"
+            >serhatkaya.com.tr</a
+          >
+        </div>
+      </div>
+      <div id="game-over-popup" class="popup">
+        <div class="popup-content">
+          <h1>Game Over</h1>
+          <p>Your Score: <span id="final-score">0</span></p>
+          <p>Best Score: <span id="best-score">0</span></p>
+          <button id="restart-button">Restart</button>
+        </div>
+      </div>
+      <audio id="jump-sound" src="./assets/jump.mp3"></audio>
+      <audio id="start-sound" src="./assets/start.mp3"></audio>
+      <audio id="collision-sound" src="./assets/collision.mp3"></audio>
+      <audio id="score-sound" src="./assets/score.mp3"></audio>
+    </div>
+    <script src="./assets/script.js"></script>
+  </body>
+</html>

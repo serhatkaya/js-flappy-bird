@@ -1,0 +1,348 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #70c5ce;
+  font-family: "Press Start 2P", cursive;
+}
+
+* {
+  user-select: none;
+}
+.game {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.game-container {
+  width: 100%;
+  max-height: 400px;
+  height: 100%;
+  background-color: #70c5ce;
+  position: relative;
+  border: 1px dashed
+    repeating-linear-gradient(
+      45deg,
+      blue,
+      blue 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.start-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-screen h1 {
+  color: #fff;
+  font-family: "Press Start 2P", cursive;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#start-button {
+  background: #ff6f61;
+  border: 2px solid #000;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.pipe {
+  background: linear-gradient(
+    to right,
+    #9de757 4%,
+    #d5f97f 6%,
+    #9de757 7%,
+    #9de757 14%,
+    #9de757 14%,
+    #74bf2e 15%,
+    #74bf2e 17%,
+    #9de757 20%,
+    #74bf2e 23%,
+    #74bf2e 70%,
+    #74bf2e 70%,
+    #578220 71%,
+    #578220 72%,
+    #74bf2e 73%,
+    #74bf2e 75%,
+    #527e23 86%
+  );
+  border: 1px solid #43a047;
+  box-shadow: 5px 0px 3px #2e7d32 inset;
+  width: 60px;
+  /* height: 300px; */
+  background-color: #93c6e0;
+  position: absolute;
+  /* top: 50%; */
+  left: 100%;
+  /* transform: translateY(-50%); */
+  border: 1px solid #000;
+}
+
+.pipe-t {
+  z-index: 3;
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 50px;
+  background: linear-gradient(
+    to right,
+    #9de757 4%,
+    #d5f97f 6%,
+    #9de757 7%,
+    #9de757 14%,
+    #9de757 14%,
+    #74bf2e 15%,
+    #74bf2e 17%,
+    #9de757 20%,
+    #74bf2e 23%,
+    #74bf2e 70%,
+    #74bf2e 70%,
+    #578220 71%,
+    #578220 72%,
+    #74bf2e 73%,
+    #74bf2e 75%,
+    #527e23 86%
+  );
+  bottom: -1px;
+  box-shadow: 5px 0px 3px #2e7d32 inset;
+  border: 1px solid #43a047;
+}
+
+.pipe.bottom .pipe-t {
+  top: -1px;
+}
+
+.score {
+  position: absolute;
+  z-index: 98;
+  top: 10px;
+  right: 10px;
+  color: #fff;
+  font-size: 20px;
+  font-family: "Press Start 2P", cursive;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+#score-best {
+  margin-top: 5px;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border: 4px solid #000;
+  border-radius: 5px;
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
+}
+
+button {
+  background: #ff6f61;
+  border: 2px solid #000;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.pipes-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.wall {
+  position: absolute;
+  width: 100%;
+  bottom: -100vh;
+  height: 100vh;
+  background: #dcd793;
+  left: 0;
+  z-index: 5;
+}
+.wall a {
+  position: absolute;
+  top: 20px;
+  transform: translateX(-50%);
+  left: 50%;
+}
+.wall:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  top: 0;
+  border: 1px solid #49414a;
+  background: repeating-linear-gradient(
+    -45deg,
+    #96e453,
+    #96e453 1vw,
+    #5b9024 1vw,
+    #5b9024 2vw
+  );
+  box-shadow: 0 2px 4px #cbaa4d;
+}
+
+.wall.top {
+  top: -10px;
+  background: transparent;
+  height: 10px;
+}
+
+/*bird */
+
+.bird {
+  background: #f9f124;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #424242;
+  border-radius: 60% 40%;
+  box-shadow: inset 1px -15px 1px #fcbb11, inset 1px 3px 1px #fff,
+    -2px 1px 5px rgba(0, 0, 0, 0.2);
+
+  /* -webkit-transform: rotate(-10deg); */
+  /* bird-old values*/
+  /* width: 32px; */
+  /* height: 32px; */
+  /* background-color: #ff6f61; */
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
+  /* background: url(./bird.png); */
+  /* background-size: 100% 100%; */
+}
+
+.bird.animated {
+  animation: flap 0.5s infinite alternate;
+}
+
+/* eyes */
+.bird:after {
+  content: "";
+  background: white;
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  z-index: 2;
+  margin-left: 15px;
+  /* margin-top: 0; */
+  border: 2px #424242 solid;
+  border-radius: 40% 60%;
+  /* -webkit-transform: rotate(-10deg); */
+  box-shadow: inset 0px -2px 1px silver;
+}
+
+.score-mid {
+  display: none;
+  position: absolute;
+  color: white;
+  top: 10px;
+  z-index: 99;
+  left: 50%;
+  text-shadow: 2px 1px black, -2px 1px black, 2px -2px black, 1px -2px black;
+  font-size: 19px;
+}
+
+/* Wings */
+.bird:before {
+  height: 16px;
+  width: 12px;
+  content: "";
+  background: white;
+
+  position: absolute;
+  z-index: 2;
+  margin-left: -4px;
+  border: 2px #424242 solid;
+  border-radius: 40% 70%;
+  box-shadow: inset 0px -5px 1px #f9f124;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.nib {
+  background: #fd684b;
+  height: 2px;
+  width: 16px;
+  z-index: 10;
+  position: absolute;
+  -webkit-transform: rotate(5deg);
+  transform: rotate(5deg);
+  margin-left: 14px;
+  margin-top: 22px;
+  border: 2px solid #424242;
+  border-radius: 20px 10px 35px 20px;
+}
+
+._n1 {
+  margin-top: 26px;
+  width: 16px;
+  margin-left: 13px;
+}
+
+._n2 {
+  border-radius: 70px 50px 35px 20px;
+}
+
+.eye {
+  width: 5px;
+  height: 5px;
+  display: block;
+  position: absolute;
+  background: #424242;
+  border-radius: 50%;
+  z-index: 9;
+  margin-left: 24px;
+  margin-top: 6px;
+}
+
+@keyframes flap {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
