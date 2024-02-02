@@ -59,7 +59,7 @@
 
     settings = {
       gravity: 3,
-      cheat: false,
+      cheat: true,
       pipeSpeed: 1500,
       jumpDistance: 3,
       pipeGap: 128,
@@ -198,14 +198,15 @@
         const pipeTRect = pipeT.getBoundingClientRect();
 
         if (
-          (birdRect.right > pipeRect.left &&
+          ((birdRect.right > pipeRect.left &&
             birdRect.left < pipeRect.right &&
             birdRect.bottom > pipeRect.top &&
             birdRect.top < pipeRect.bottom) ||
-          (birdRect.right > pipeTRect.left &&
-            birdRect.left < pipeTRect.right &&
-            birdRect.bottom > pipeTRect.top &&
-            birdRect.top < pipeTRect.bottom)
+            (birdRect.right > pipeTRect.left &&
+              birdRect.left < pipeTRect.right &&
+              birdRect.bottom > pipeTRect.top &&
+              birdRect.top < pipeTRect.bottom)) &&
+          !this.settings.cheat
         ) {
           this.endGame();
           return;
