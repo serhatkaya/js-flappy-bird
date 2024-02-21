@@ -59,7 +59,7 @@
 
     settings = {
       gravity: 3,
-      cheat: true,
+      cheat: false,
       pipeSpeed: 1500,
       jumpDistance: 3,
       pipeGap: 128,
