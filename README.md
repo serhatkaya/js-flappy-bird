@@ -1,5 +1,7 @@
 # js-flappy-bird
 
+- [DEMO](https://js-flappy-bird-n22d.vercel.app/)
+
 - just for fun
 
 ## Run the game
