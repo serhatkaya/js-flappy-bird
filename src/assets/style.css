@@ -41,6 +41,11 @@ body {
   position: relative;
 }
 
+@media screen and (max-width: 992px) {
+  .game-container {
+    max-width: 100%;
+  }
+}
 .start-screen {
   display: flex;
   flex-direction: column;
