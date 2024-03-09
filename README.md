@@ -1,5 +1,5 @@
 # js-flappy-bird
-
+![Vercel](https://vercelbadge.vercel.app/api/serhatkaya/js-flappy-bird)
 - [DEMO](https://js-flappy-bird-n22d.vercel.app/)
 
 - just for fun
