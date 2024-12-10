@@ -86,20 +86,42 @@
     }
 
     initListeners() {
-      this.addListener(this.elements.startButton, "click", () =>
-        this.startGame()
-      );
-      this.addListener(this.elements.restartButton, "click", () => {
-        this.setStyle(this.elements.gameOverPopup, "display", "none");
-        this.resetGame();
-      });
+      const isTouchDevice =
+        "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+      if (isTouchDevice) {
+        this.addListener(this.elements.startButton, "touchstart", (e) => {
+          e.preventDefault();
+          this.startGame();
+        });
+
+        this.addListener(this.elements.restartButton, "touchstart", (e) => {
+          e.preventDefault();
+          this.setStyle(this.elements.gameOverPopup, "display", "none");
+          this.resetGame();
+        });
+
+        this.addListener(document, "touchstart", (e) => {
+          e.preventDefault();
+          this.triggerJump();
+        });
+      } else {
+        this.addListener(this.elements.startButton, "click", () =>
+          this.startGame()
+        );
+
+        this.addListener(this.elements.restartButton, "click", () => {
+          this.setStyle(this.elements.gameOverPopup, "display", "none");
+          this.resetGame();
+        });
+
+        this.addListener(document, "mousedown", () => {
+          this.triggerJump();
+        });
+      }
 
       this.addListener(document, "keydown", (event) => {
         this.triggerJump(true, event);
-      });
-
-      this.addListener(document, "mousedown", () => {
-        this.triggerJump();
       });
     }
 
