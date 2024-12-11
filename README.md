@@ -2,7 +2,7 @@
 
 ![Vercel](https://vercelbadge.vercel.app/api/serhatkaya/js-flappy-bird)
 
-- https://js-flappy-bird-phi.vercel.app/
+- [Play!](https://flappyjs.vercel.app/)
 
 ## About
 
