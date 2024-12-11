@@ -1,10 +1,21 @@
 # js-flappy-bird
+
 ![Vercel](https://vercelbadge.vercel.app/api/serhatkaya/js-flappy-bird)
+
 - [DEMO](https://js-flappy-bird-n22d.vercel.app/)
 
-- just for fun
+## About
 
-## Run the game
+A fun little Flappy Bird clone built with JavaScript. Fly through the pipes and try to achieve the highest score!
 
+## How to Run the Game
 
-- Open index.html with browser or run `yarn install && yarn start`
+1. Clone the repository.
+2. Open `index.html` in your browser or run:
+   ```
+   yarn install && yarn start
+   ```
+
+## Enjoy!
+
+Have fun playing and feel free to contribute!
