@@ -5,7 +5,7 @@ module.exports = {
   entry: "./src/assets/script.js",
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "public"),
   },
   mode: "development",
   devtool: "inline-source-map",
